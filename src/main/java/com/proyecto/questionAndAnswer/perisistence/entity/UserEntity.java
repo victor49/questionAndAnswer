@@ -13,73 +13,72 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdUser;
+    private Integer idUser;
 
     @Column(nullable = false)
-    private String Name;
+    private String name;
 
     @Column(nullable = false)
-    private String LastName;
+    private String lastName;
 
     @Column(nullable = false)
-    private String Age;
+    private String age;
 
     @Column(nullable = false)
-    private String IdRole;
+    private String idRole;
 
 
     @ManyToOne //muchos User -> un Role
-    @JoinColumn(name = "IdRole")
+    @JoinColumn(name = "idRole", insertable=false, updatable=false)
     private RoleEntity role;
 
     @OneToMany(mappedBy = "user")
     private List<PublicationEntity> publications;
 
 
-    
-
+    //Getters and Setters
     public Integer getIdUser() {
-        return IdUser;
+        return idUser;
     }
 
     public void setIdUser(Integer idUser) {
-        IdUser = idUser;
+        this.idUser = idUser;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(String age) {
-        Age = age;
+        this.age = age;
     }
 
     public String getIdRole() {
-        return IdRole;
+        return idRole;
     }
 
     public void setIdRole(String idRole) {
-        IdRole = idRole;
+        this.idRole = idRole;
     }
 
     public RoleEntity getRole() {
@@ -96,8 +95,5 @@ public class UserEntity {
 
     public void setPublications(List<PublicationEntity> publications) {
         this.publications = publications;
-    }
-
-
-    
+    }    
 }

@@ -1,5 +1,7 @@
 package com.proyecto.questionAndAnswer.perisistence.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,29 +10,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Roles")
+@Table(name = "roles")
 public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer IdRole;
+    private Integer idRole;
 
     @Column(nullable = false)
-    private String Role;
-    
+    private String role;
 
+
+    //Getters and Setters
     public Integer getIdRole() {
-        return IdRole;
+        return idRole;
     }
 
     public void setIdRole(Integer idRole) {
-        IdRole = idRole;
+        this.idRole = idRole;
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }    
 }

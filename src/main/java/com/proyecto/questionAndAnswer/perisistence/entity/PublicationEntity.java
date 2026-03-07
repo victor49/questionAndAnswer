@@ -13,49 +13,49 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Publications")
+@Table(name = "publication")
 public class PublicationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdPublication;
+    private Integer idPublication;
 
     @Column(nullable = false)
-    private String Title;
+    private String title;
 
     @Column(nullable = false)
-    private String Content;
+    private String contentPublication;
 
     @ManyToOne
-    @JoinColumn(name = "IdUser")
+    @JoinColumn(name = "idUser", insertable=false, updatable=false)
     private UserEntity user;
 
-    @OneToMany(mappedBy = "user")
-    private List<AnswerEntity> Answers;
+    @OneToMany(mappedBy = "publication")
+    private List<AnswerEntity> answers;
 
-    
 
+    //Getters and Setters
     public Integer getIdPublication() {
-        return IdPublication;
+        return idPublication;
     }
 
     public void setIdPublication(Integer idPublication) {
-        IdPublication = idPublication;
+        this.idPublication = idPublication;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
-    public String getContent() {
-        return Content;
+    public String getContentPublication() {
+        return contentPublication;
     }
 
-    public void setContent(String content) {
-        Content = content;
+    public void setContentPublication(String contentPublication) {
+        this.contentPublication = contentPublication;
     }
 
     public UserEntity getUser() {
@@ -67,13 +67,14 @@ public class PublicationEntity {
     }
 
     public List<AnswerEntity> getAnswers() {
-        return Answers;
+        return answers;
     }
 
     public void setAnswers(List<AnswerEntity> answers) {
-        Answers = answers;
+        this.answers = answers;
     }
 
-    
+
+
     
 }

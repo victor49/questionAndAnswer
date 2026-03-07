@@ -10,47 +10,47 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Answers")
+@Table(name = "answers")
 public class AnswerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdAnswers;
+    private Integer idAnswers;
 
     @Column(nullable = false)
-    private String Content;
+    private String contentAnswer;
 
     @ManyToOne
-    @JoinColumn(name = "IdPublication")
-    private PublicationEntity plication;
+    @JoinColumn(name = "idPublication", insertable=false, updatable=false)
+    private PublicationEntity publication;
 
     @ManyToOne
-    @Column(name = "IdUser")
+    @JoinColumn(name = "idUser", insertable=false, updatable=false)
     private UserEntity user;
 
-    
 
+    //Getters and Setters
     public Integer getIdAnswers() {
-        return IdAnswers;
+        return idAnswers;
     }
 
     public void setIdAnswers(Integer idAnswers) {
-        IdAnswers = idAnswers;
+        this.idAnswers = idAnswers;
     }
 
-    public String getContent() {
-        return Content;
+    public String getContentAnswer() {
+        return contentAnswer;
     }
 
-    public void setContent(String content) {
-        Content = content;
+    public void setContentAnswer(String contentAnswer) {
+        this.contentAnswer = contentAnswer;
     }
 
-    public PublicationEntity getPlication() {
-        return plication;
+    public PublicationEntity getPublication() {
+        return publication;
     }
 
-    public void setPlication(PublicationEntity plication) {
-        this.plication = plication;
+    public void setPublication(PublicationEntity publication) {
+        this.publication = publication;
     }
 
     public UserEntity getUser() {
@@ -60,8 +60,4 @@ public class AnswerEntity {
     public void setUser(UserEntity user) {
         this.user = user;
     }
-
-
-    
-
-}
+   }
