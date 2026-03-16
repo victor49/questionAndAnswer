@@ -15,9 +15,13 @@ public class RoleService {
         this.roleRepository = roleRepository;
     }
 
-
     public List<RoleDto> getAll()
     {
         return this.roleRepository.getAll();
+    }
+
+    public RoleDto getById(Integer id)
+    {
+        return this.roleRepository.getById(id);
     }
 }

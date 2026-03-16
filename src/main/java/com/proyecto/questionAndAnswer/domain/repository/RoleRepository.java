@@ -6,5 +6,8 @@ import com.proyecto.questionAndAnswer.domain.dto.RoleDto;
 
 public interface RoleRepository {
     List<RoleDto> getAll();
+    RoleDto getById(Integer id);
+
+
 
 }
