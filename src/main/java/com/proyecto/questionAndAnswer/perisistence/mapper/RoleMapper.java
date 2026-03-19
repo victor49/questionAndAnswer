@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
+import com.proyecto.questionAndAnswer.domain.dto.RoleActionDto;
 import com.proyecto.questionAndAnswer.domain.dto.RoleDto;
 import com.proyecto.questionAndAnswer.perisistence.entity.RoleEntity;
 
@@ -11,7 +12,9 @@ import com.proyecto.questionAndAnswer.perisistence.entity.RoleEntity;
 public interface RoleMapper {
 
     RoleDto toDto(RoleEntity Entity);
-
     List<RoleDto> toDto(Iterable<RoleEntity> entities);
+
+    RoleEntity toDtoEntity(RoleActionDto roleActionDto);
+
 
 }

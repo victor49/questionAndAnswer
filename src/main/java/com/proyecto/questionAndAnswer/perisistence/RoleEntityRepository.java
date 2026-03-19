@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.proyecto.questionAndAnswer.domain.dto.RoleActionDto;
 import com.proyecto.questionAndAnswer.domain.dto.RoleDto;
 import com.proyecto.questionAndAnswer.domain.exception.RoleExitedException;
 import com.proyecto.questionAndAnswer.domain.repository.RoleRepository;
@@ -36,6 +37,14 @@ public class RoleEntityRepository  implements RoleRepository{
             throw new RoleExitedException();
 
         return this.roleMapper.toDto(roleEntity);
+    }
+
+
+    @Override
+    public RoleDto save(RoleActionDto roleActionDto) {
+        RoleEntity roleEntity = this.roleMapper.toDtoEntity(roleActionDto);
+
+        return this.roleMapper.toDto(this.crudRoleEntity.save(roleEntity));
     }
     
 

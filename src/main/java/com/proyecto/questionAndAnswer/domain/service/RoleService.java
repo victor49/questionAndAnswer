@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.proyecto.questionAndAnswer.domain.dto.RoleActionDto;
 import com.proyecto.questionAndAnswer.domain.dto.RoleDto;
 import com.proyecto.questionAndAnswer.domain.repository.RoleRepository;
 
@@ -23,5 +24,10 @@ public class RoleService {
     public RoleDto getById(Integer id)
     {
         return this.roleRepository.getById(id);
+    }
+
+    public RoleDto add(RoleActionDto roleActionDto)
+    {
+        return this.roleRepository.save(roleActionDto);
     }
 }

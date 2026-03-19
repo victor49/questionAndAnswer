@@ -29,7 +29,7 @@ public class UserEntity {
     private String age;
 
     @Column(nullable = false)
-    private String idRole;
+    private Integer idRole;
 
 
     @ManyToOne //muchos User -> un Role
@@ -73,11 +73,11 @@ public class UserEntity {
         this.age = age;
     }
 
-    public String getIdRole() {
+    public Integer getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(String idRole) {
+    public void setIdRole(Integer idRole) {
         this.idRole = idRole;
     }
 
